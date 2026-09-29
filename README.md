@@ -1,0 +1,101 @@
+MVP — Pipeline de Dados na Nuvem
+Stack Overflow Developer Survey 2025
+
+Este projeto apresenta a construção de um pipeline de dados na nuvem utilizando o Databricks Free Edition, tendo como fonte de dados a Stack Overflow Developer Survey 2025.
+
+O projeto percorre as principais etapas de um pipeline de dados: coleta, armazenamento, transformação, modelagem, análise de qualidade e análise dos dados para responder perguntas de negócio.
+
+1. Contexto de Negócios e Perguntas
+1.1 Contexto
+
+O projeto utiliza dados da Stack Overflow Developer Survey 2025, pesquisa realizada com desenvolvedores e profissionais relacionados à tecnologia.
+
+O objetivo do projeto é explorar o perfil profissional dos participantes, as tecnologias utilizadas e a relação entre utilização de ferramentas de Inteligência Artificial e a percepção dos participantes sobre essas ferramentas.
+
+A escolha dessa base permite trabalhar com diferentes dimensões do perfil profissional e tecnológico dos respondentes, além de possibilitar a construção de um pipeline completo de dados em nuvem.
+
+1.2 Problema
+
+A partir dos dados da pesquisa, busca-se compreender o perfil dos participantes e identificar padrões relacionados às tecnologias utilizadas e à adoção de ferramentas de Inteligência Artificial.
+
+O problema foi transformado nas seguintes perguntas de negócio:
+
+Quais são os principais perfis profissionais dos participantes da Stack Overflow Developer Survey 2025?
+
+Quais linguagens de programação são mais utilizadas pelos participantes da pesquisa?
+
+Qual é a frequência de utilização de ferramentas de Inteligência Artificial entre os participantes?
+
+Como a percepção sobre ferramentas de Inteligência Artificial varia de acordo com a frequência de utilização dessas ferramentas?
+
+Essas perguntas orientaram a seleção das colunas, a modelagem das tabelas e as análises realizadas nas etapas posteriores do pipeline.
+
+1.3 Fonte dos dados
+
+A fonte utilizada foi a Stack Overflow Developer Survey 2025, disponibilizada publicamente pelo Stack Overflow.
+
+Os dados utilizados neste projeto correspondem aos resultados da pesquisa de 2025, sendo o arquivo principal utilizado no pipeline o survey_results_public.csv.
+
+A base possui 52.839 registros e contém informações relacionadas a perfil profissional, experiência, tecnologias utilizadas, remuneração, utilização de ferramentas de Inteligência Artificial, entre outras características dos participantes.
+
+1.4 Estrutura dos dados brutos
+
+O arquivo original possui diversas colunas agrupadas em diferentes temas da pesquisa, incluindo:
+
+Perfil profissional e demográfico;
+
+Educação e experiência;
+
+Cargo ou tipo de desenvolvedor;
+
+Características da empresa;
+
+Modalidade de trabalho;
+
+Linguagens de programação;
+
+Bancos de dados;
+
+Plataformas e tecnologias;
+
+Ferramentas de desenvolvimento;
+
+Inteligência Artificial;
+
+Uso da plataforma Stack Overflow;
+
+Remuneração e satisfação profissional.
+
+Para o MVP, foi selecionado um subconjunto das informações consideradas relevantes para responder às perguntas de negócio.
+
+Entre as principais variáveis utilizadas estão:
+
+Campo original	Utilização no projeto
+ResponseId	Identificação da resposta
+Age	Perfil demográfico
+EdLevel	Educação
+Employment	Situação profissional
+WorkExp	Experiência profissional
+YearsCode	Experiência com programação
+DevType	Perfil/cargo profissional
+OrgSize	Tamanho da empresa
+RemoteWork	Modalidade de trabalho
+Industry	Setor de atuação
+Country	País
+Currency	Moeda
+ConvertedCompYearly	Remuneração anual convertida
+LanguageHaveWorkedWith	Linguagens utilizadas
+LanguageWantToWorkWith	Linguagens desejadas
+AISelect	Frequência de utilização de IA
+AISent	Percepção sobre IA
+AIAcc	Percepção sobre precisão da IA
+AIComplex	Percepção sobre tarefas complexas
+AIFrustration	Frustrações relacionadas à IA
+AIThreat	Percepção sobre ameaça da IA ao trabalho
+AIAgents	Utilização de agentes de IA
+AIAgentChange	Mudanças relacionadas aos agentes de IA
+1.5 Licença e utilização dos dados
+
+Os dados utilizados são provenientes da Stack Overflow Developer Survey e foram disponibilizados publicamente para consulta e utilização conforme os termos definidos pelo responsável pela pesquisa.
+
+A fonte original e os respectivos termos de uso devem ser considerados na utilização e redistribuição dos dados. Neste projeto, os arquivos de dados não são disponibilizados no repositório GitHub; somente o código e a documentação do pipeline são disponibilizados.
