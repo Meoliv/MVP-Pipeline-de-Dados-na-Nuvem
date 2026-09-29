@@ -1,0 +1,55 @@
+2. Busca e Coleta dos Dados
+2.1 Fonte dos dados
+
+Os dados utilizados neste projeto foram obtidos a partir da Stack Overflow Developer Survey 2025, pesquisa anual realizada pela Stack Overflow com profissionais e estudantes relacionados à área de tecnologia.
+
+Foi utilizado o arquivo survey_results_public.csv, que contém as respostas públicas da pesquisa.
+
+A fonte original dos dados é o repositório oficial da pesquisa no GitHub:
+
+Stack Overflow Survey — 2025
+
+Arquivo utilizado: survey_results_public.csv
+
+O arquivo possui aproximadamente 141 MB e contém 52.839 registros.
+
+2.2 Processo de coleta
+
+A coleta foi realizada inicialmente por meio do download do arquivo disponibilizado pela Stack Overflow.
+
+Após o download, o arquivo foi importado para o ambiente Databricks Free Edition, que foi utilizado como plataforma de processamento e armazenamento do pipeline.
+
+O objetivo desta etapa foi disponibilizar o dado bruto no ambiente de nuvem antes da realização de qualquer transformação.
+
+O arquivo original foi carregado para uma tabela no catálogo workspace.default, denominada:
+
+workspace.default.survey_results_public
+
+
+Essa tabela representa a camada Bronze do pipeline.
+
+2.3 Camada Bronze
+
+A tabela survey_results_public foi utilizada como representação do dado bruto.
+
+A camada Bronze tem como objetivo preservar os dados de origem antes das transformações realizadas nas etapas seguintes. Dessa forma, as transformações de limpeza, seleção de campos e padronização não são aplicadas diretamente sobre a fonte original.
+
+A partir dessa tabela foram realizadas as transformações necessárias para construção da camada Silver.
+
+2.4 Volume inicial dos dados
+
+Após a carga, foi verificado que a tabela continha:
+
+Métrica	Resultado
+Total de registros	52.839
+Tabela Bronze	survey_results_public
+Ambiente	Databricks Free Edition
+Formato original	CSV
+
+A quantidade de registros foi utilizada como referência para validar a carga inicial dos dados.
+
+2.5 Arquivos não disponibilizados no repositório
+
+De acordo com os requisitos do projeto, os arquivos de dados não foram disponibilizados no repositório GitHub.
+
+O repositório contém o código utilizado no processamento e a documentação do pipeline, permitindo compreender e reproduzir a lógica das transformações sem a necessidade de armazenar o arquivo original no GitHub.
