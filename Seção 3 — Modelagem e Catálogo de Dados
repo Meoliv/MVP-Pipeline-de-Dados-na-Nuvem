@@ -1,0 +1,190 @@
+3. Modelagem e Catálogo de Dados
+3.1 Estratégia de modelagem
+
+O pipeline foi organizado utilizando uma abordagem baseada na Arquitetura Medalhão, dividindo os dados em três níveis de refinamento:
+
+Bronze
+   ↓
+Silver
+   ↓
+Gold
+
+
+A separação em camadas permite preservar os dados brutos, realizar as transformações de limpeza e padronização em uma camada intermediária e disponibilizar dados preparados para análise na camada Gold.
+
+No projeto, as camadas foram implementadas como tabelas no catálogo workspace.default do Databricks.
+
+3.2 Arquitetura do pipeline
+
+A estrutura final das tabelas foi:
+
+BRONZE
+└── survey_results_public
+          │
+          ▼
+SILVER
+├── survey_silver
+└── silver_languages
+          │
+          ▼
+GOLD
+├── gold_developer_profile
+├── gold_languages
+├── gold_ai_usage
+└── gold_ai_usage_sentiment
+
+
+Todas as tabelas foram persistidas no ambiente Databricks.
+
+3.3 Camada Bronze
+
+A tabela:
+
+workspace.default.survey_results_public
+
+
+representa a camada Bronze.
+
+Ela contém os dados provenientes diretamente do arquivo survey_results_public.csv, antes das transformações realizadas para o projeto.
+
+O objetivo dessa camada é preservar uma representação dos dados originais, permitindo rastreabilidade e possibilitando que as transformações das camadas seguintes sejam refeitas a partir da fonte carregada.
+
+3.4 Camada Silver
+
+A principal tabela da camada Silver é:
+
+workspace.default.survey_silver
+
+
+Essa tabela contém os campos selecionados para o escopo do projeto e apresenta os dados organizados para utilização nas análises.
+
+Foram selecionadas informações relacionadas a:
+
+perfil profissional;
+
+educação;
+
+experiência;
+
+características do trabalho;
+
+remuneração;
+
+linguagens de programação;
+
+utilização de Inteligência Artificial;
+
+percepção sobre Inteligência Artificial;
+
+agentes de Inteligência Artificial.
+
+Também foi criada a tabela:
+
+workspace.default.silver_languages
+
+
+Essa tabela foi utilizada para tratar o campo de linguagens de programação utilizadas.
+
+No arquivo original, um participante pode informar várias linguagens em um único campo. Por exemplo:
+
+Bash/Shell (all shells); Dart; SQL
+
+
+Para facilitar as análises, essa informação foi transformada em registros individuais:
+
+response_id	language
+1	Bash/Shell (all shells)
+1	Dart
+1	SQL
+
+Essa transformação permite calcular a quantidade de respondentes que declararam utilizar cada linguagem.
+
+3.5 Camada Gold
+
+A camada Gold contém tabelas específicas para responder às perguntas de negócio definidas no início do projeto.
+
+gold_developer_profile
+
+Tabela destinada à análise dos principais perfis profissionais dos participantes.
+
+Sua principal informação analítica é a distribuição dos participantes por tipo de desenvolvedor ou perfil profissional.
+
+gold_languages
+
+Tabela destinada à análise das linguagens de programação utilizadas pelos participantes.
+
+Contém a quantidade de respondentes por linguagem e o percentual correspondente entre os respondentes com informação válida sobre linguagens.
+
+gold_ai_usage
+
+Tabela destinada à análise da frequência de utilização de ferramentas de Inteligência Artificial.
+
+Permite identificar a distribuição dos participantes entre categorias como utilização diária, semanal, mensal ou ausência de utilização.
+
+gold_ai_usage_sentiment
+
+Tabela destinada à análise conjunta entre frequência de utilização de ferramentas de IA e percepção sobre essas ferramentas.
+
+Essa tabela permite observar como as categorias de percepção (Very favorable, Favorable, Indifferent, Unfavorable, Very unfavorable e Unsure) estão distribuídas dentro de cada categoria de utilização.
+
+3.6 Catálogo de Dados — survey_silver
+Campo	Tipo	Descrição	Origem
+response_id	BIGINT	Identificador da resposta	ResponseId
+age	STRING	Faixa etária declarada pelo participante	Age
+education	STRING	Nível de educação	EdLevel
+employment	STRING	Situação profissional	Employment
+work_experience	STRING	Experiência profissional	WorkExp
+years_coding	STRING	Tempo de experiência com programação	YearsCode
+developer_type	STRING	Tipo ou cargo profissional	DevType
+company_size	STRING	Tamanho da organização	OrgSize
+remote_work	STRING	Modalidade de trabalho	RemoteWork
+industry	STRING	Setor de atuação	Industry
+country	STRING	País do participante	Country
+currency	STRING	Moeda utilizada na informação salarial	Currency
+salary_yearly	DOUBLE	Remuneração anual convertida	ConvertedCompYearly
+languages_worked	STRING	Linguagens com as quais o participante trabalhou	LanguageHaveWorkedWith
+languages_wanted	STRING	Linguagens com as quais o participante deseja trabalhar	LanguageWantToWorkWith
+ai_usage	STRING	Frequência de utilização de ferramentas de IA	AISelect
+ai_sentiment	STRING	Percepção do participante sobre IA	AISent
+ai_accuracy	STRING	Percepção sobre a precisão das ferramentas de IA	AIAcc
+ai_complexity	STRING	Percepção sobre a capacidade da IA em tarefas complexas	AIComplex
+ai_frustration	STRING	Frustrações relacionadas à utilização de IA	AIFrustration
+ai_threat	STRING	Percepção sobre IA como ameaça ao trabalho	AIThreat
+ai_agents	STRING	Utilização de agentes de IA	AIAgents
+ai_agent_change	STRING	Percepção sobre mudanças relacionadas aos agentes de IA	AIAgentChange
+3.7 Domínio e tratamento dos valores
+
+As variáveis categóricas foram mantidas como texto, preservando as categorias originalmente fornecidas pela pesquisa.
+
+Durante o processo de qualidade, valores ausentes ou categorias NA foram identificados e tratados como Não informado nas tabelas utilizadas para análise, quando aplicável.
+
+Os valores numéricos foram mantidos em seus respectivos tipos. A remuneração anual utilizada no projeto foi baseada no campo ConvertedCompYearly, armazenado na Silver como salary_yearly do tipo DOUBLE.
+
+3.8 Linhagem dos dados
+
+A linhagem principal do projeto pode ser representada da seguinte forma:
+
+Stack Overflow Developer Survey 2025
+              │
+              ▼
+survey_results_public
+        [BRONZE]
+              │
+              │ seleção e padronização
+              ▼
+survey_silver
+        [SILVER]
+              │
+              ├──────────────► silver_languages
+              │                       │
+              │                       ▼
+              │                gold_languages
+              │
+              ├──────────────► gold_developer_profile
+              │
+              ├──────────────► gold_ai_usage
+              │
+              └──────────────► gold_ai_usage_sentiment
+
+
+Essa organização permite identificar a origem dos dados e o fluxo de transformação utilizado para produzir as tabelas analíticas.
