@@ -1,18 +1,15 @@
 3. Modelagem e Catálogo de Dados
 3.1 Estratégia de modelagem
 
-O pipeline foi organizado utilizando uma abordagem baseada na Arquitetura Medalhão, dividindo os dados em três níveis de refinamento:
+O projeto adotou a Arquitetura Medalhão (Medallion Architecture), amplamente utilizada em ambientes Lakehouse e recomendada pela Databricks.
 
-Bronze
-   ↓
-Silver
-   ↓
-Gold
+Essa arquitetura organiza os dados em diferentes níveis de refinamento, permitindo que cada camada possua uma responsabilidade específica dentro do pipeline.
 
+Bronze: preservação dos dados brutos recebidos da fonte original;
+Silver: aplicação de tratamentos, padronizações e preparação dos dados para análise;
+Gold: disponibilização de tabelas analíticas prontas para responder às perguntas de negócio.
 
-A separação em camadas permite preservar os dados brutos, realizar as transformações de limpeza e padronização em uma camada intermediária e disponibilizar dados preparados para análise na camada Gold.
-
-No projeto, as camadas foram implementadas como tabelas no catálogo workspace.default do Databricks.
+Essa abordagem contribui para melhorar a rastreabilidade dos dados, facilitar a manutenção do pipeline e garantir uma separação clara entre dados brutos, dados tratados e dados analíticos.
 
 3.2 Arquitetura do pipeline
 
@@ -101,7 +98,9 @@ Essa transformação permite calcular a quantidade de respondentes que declarara
 
 3.5 Camada Gold
 
-A camada Gold contém tabelas específicas para responder às perguntas de negócio definidas no início do projeto.
+A camada Gold concentra tabelas agregadas e modeladas especificamente para responder às perguntas de negócio definidas no início do projeto.
+
+As informações dessa camada são resultado das transformações realizadas sobre os dados da Silver e foram estruturadas para simplificar consultas analíticas e geração de indicadores.
 
 gold_developer_profile
 
@@ -152,12 +151,14 @@ ai_frustration	STRING	Frustrações relacionadas à utilização de IA	AIFrustra
 ai_threat	STRING	Percepção sobre IA como ameaça ao trabalho	AIThreat
 ai_agents	STRING	Utilização de agentes de IA	AIAgents
 ai_agent_change	STRING	Percepção sobre mudanças relacionadas aos agentes de IA	AIAgentChange
+
 3.7 Domínio e tratamento dos valores
 
-As variáveis categóricas foram mantidas como texto, preservando as categorias originalmente fornecidas pela pesquisa.
+As variáveis categóricas foram mantidas em formato textual, preservando as categorias definidas originalmente pela pesquisa.
 
-Durante o processo de qualidade, valores ausentes ou categorias NA foram identificados e tratados como Não informado nas tabelas utilizadas para análise, quando aplicável.
+Durante o processo de preparação dos dados foram identificados registros com campos não preenchidos ou valores ausentes. Quando necessário para fins analíticos, esses valores foram tratados e classificados como "Não informado", evitando a perda de registros nas agregações.
 
+Os atributos numéricos foram convertidos e mantidos em seus tipos apropriados para permitir cálculos e análises estatísticas. A variável salary_yearly, derivada do campo ConvertedCompYearly, foi armazenada como DOUBLE, preservando sua utilização em análises futuras relacionadas à remuneração.
 Os valores numéricos foram mantidos em seus respectivos tipos. A remuneração anual utilizada no projeto foi baseada no campo ConvertedCompYearly, armazenado na Silver como salary_yearly do tipo DOUBLE.
 
 3.8 Linhagem dos dados
