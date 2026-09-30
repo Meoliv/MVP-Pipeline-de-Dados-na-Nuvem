@@ -16,19 +16,16 @@ A escolha dessa base permite trabalhar com diferentes dimensões do perfil profi
 
 1.2 Problema
 
-A partir dos dados da pesquisa, busca-se compreender o perfil dos participantes e identificar padrões relacionados às tecnologias utilizadas e à adoção de ferramentas de Inteligência Artificial.
+A Stack Overflow Developer Survey reúne informações sobre perfil profissional, tecnologias utilizadas e tendências relacionadas ao mercado de tecnologia. Diante desse contexto, este projeto busca analisar o perfil dos participantes da pesquisa e compreender como as ferramentas de Inteligência Artificial estão sendo utilizadas e percebidas pelos respondentes.
 
-O problema foi transformado nas seguintes perguntas de negócio:
+Para orientar a construção do pipeline de dados, foram definidas as seguintes perguntas de negócio:
 
 Quais são os principais perfis profissionais dos participantes da Stack Overflow Developer Survey 2025?
-
 Quais linguagens de programação são mais utilizadas pelos participantes da pesquisa?
-
 Qual é a frequência de utilização de ferramentas de Inteligência Artificial entre os participantes?
-
 Como a percepção sobre ferramentas de Inteligência Artificial varia de acordo com a frequência de utilização dessas ferramentas?
 
-Essas perguntas orientaram a seleção das colunas, a modelagem das tabelas e as análises realizadas nas etapas posteriores do pipeline.
+Essas perguntas nortearam a seleção dos atributos utilizados no projeto, a modelagem das tabelas analíticas e as consultas desenvolvidas na camada Gold.
 
 1.3 Fonte dos dados
 
@@ -94,8 +91,11 @@ AIFrustration	Frustrações relacionadas à IA
 AIThreat	Percepção sobre ameaça da IA ao trabalho
 AIAgents	Utilização de agentes de IA
 AIAgentChange	Mudanças relacionadas aos agentes de IA
-1.5 Licença e utilização dos dados
 
-Os dados utilizados são provenientes da Stack Overflow Developer Survey e foram disponibilizados publicamente para consulta e utilização conforme os termos definidos pelo responsável pela pesquisa.
+1.5 Licença
 
-A fonte original e os respectivos termos de uso devem ser considerados na utilização e redistribuição dos dados. Neste projeto, os arquivos de dados não são disponibilizados no repositório GitHub; somente o código e a documentação do pipeline são disponibilizados.
+Os dados utilizados neste projeto são provenientes da Stack Overflow Developer Survey 2025, disponibilizada publicamente pela Stack Overflow.
+
+A utilização dos dados foi realizada exclusivamente para fins acadêmicos, respeitando os termos e condições definidos pela organização responsável pela pesquisa.
+
+Conforme os requisitos do MVP, os arquivos de dados não foram disponibilizados no repositório GitHub. Apenas o código-fonte do pipeline, os scripts de transformação e a documentação do projeto foram disponibilizados para consulta.
