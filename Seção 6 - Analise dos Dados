@@ -1,0 +1,71 @@
+6.1 Quais são os principais perfis profissionais dos participantes da Stack Overflow Developer Survey 2025?
+
+A análise da tabela gold_developer_profile foi realizada para identificar os perfis profissionais mais representativos da pesquisa.
+
+Os resultados indicaram que a categoria mais frequente foi Developer, full-stack, representando 23,37% dos respondentes. Em seguida aparecem os profissionais classificados como Developer, back-end (12,21%) e a categoria Student (5,69%).
+
+Também foi observada uma quantidade significativa de registros classificados como Não informado (16,77%), indicando que parte dos participantes optou por não responder essa pergunta.
+
+Os resultados demonstram que a pesquisa possui forte representatividade de profissionais ligados ao desenvolvimento de software, especialmente em atividades Full Stack e Back-end, refletindo perfis amplamente demandados pelo mercado atual.
+
+6.2 Quais linguagens de programação são mais utilizadas pelos participantes da pesquisa?
+
+Para responder essa pergunta foi utilizada a tabela gold_languages, construída a partir da separação das linguagens informadas pelos participantes.
+
+As linguagens mais utilizadas foram:
+| Linguagem  | Percentual |
+| ---------- | ---------: |
+| JavaScript |     66,32% |
+| HTML/CSS   |     62,20% |
+| SQL        |     58,83% |
+| Python     |     58,13% |
+| Bash/Shell |     48,95% |
+
+Também apresentaram forte presença linguagens como TypeScript, Java, C#, C++ e PowerShell.
+
+A liderança de JavaScript e HTML/CSS evidencia a relevância do desenvolvimento web entre os participantes da pesquisa. A elevada utilização de SQL e Python demonstra ainda a importância das atividades relacionadas a manipulação de dados, automação e desenvolvimento de software em diferentes áreas do mercado.
+
+Além disso, a diversidade das linguagens identificadas mostra que os profissionais atuam em diferentes segmentos tecnológicos, abrangendo desenvolvimento web, aplicações corporativas, infraestrutura, ciência de dados e sistemas embarcados.
+
+6.3 Qual é a frequência de utilização de ferramentas de Inteligência Artificial entre os participantes?
+
+A análise foi realizada por meio da tabela gold_ai_usage.
+
+Os resultados mostraram que:
+| Categoria                                      | Percentual |
+| ---------------------------------------------- | ---------: |
+| Não informado                                  |     36,18% |
+| Utiliza IA diariamente                         |     30,06% |
+| Utiliza IA semanalmente                        |     11,28% |
+| Não utiliza e não pretende utilizar            |     10,32% |
+| Utiliza IA mensalmente ou com pouca frequência |      8,76% |
+| Não utiliza, mas pretende utilizar em breve    |      3,40% |
+
+Considerando apenas os participantes que responderam a pergunta, observa-se uma ampla adoção das ferramentas de Inteligência Artificial, com destaque para o uso diário.
+
+Esse resultado sugere que a IA já está presente na rotina de trabalho de uma parcela significativa dos profissionais de tecnologia, tornando-se uma ferramenta cada vez mais integrada às atividades de desenvolvimento, pesquisa e resolução de problemas.
+6.4 Como a percepção sobre ferramentas de Inteligência Artificial varia de acordo com a frequência de utilização?
+
+Para responder essa pergunta foi utilizada a tabela gold_ai_usage_sentiment, que relaciona o nível de utilização de IA com a percepção dos participantes sobre essa tecnologia.
+
+Os resultados mostram diferenças significativas entre os grupos analisados.
+
+Entre os profissionais que utilizam ferramentas de IA diariamente:
+
+45,68% possuem percepção Favorable;
+41,72% possuem percepção Very favorable.
+
+Somadas, essas categorias representam mais de 87% dos respondentes desse grupo.
+
+Já entre os participantes que afirmaram não utilizar IA e não possuir intenção de utilizá-la:
+
+47,06% possuem percepção Very unfavorable;
+26,58% possuem percepção Unfavorable.
+
+Nesse grupo, mais de 73% apresentam percepção negativa sobre a tecnologia.
+
+Os participantes que utilizam IA semanalmente também apresentaram predominância de opiniões favoráveis, enquanto os usuários ocasionais apresentaram avaliações mais distribuídas entre percepções positivas, neutras e negativas.
+
+De forma geral, os resultados indicam uma forte relação entre frequência de utilização e percepção sobre Inteligência Artificial. Usuários frequentes tendem a avaliar a tecnologia de forma mais positiva, enquanto usuários que não utilizam as ferramentas apresentam predominantemente percepções negativas.
+
+Essa evidência sugere que a familiaridade e a experiência prática com ferramentas de IA podem influenciar diretamente a forma como os profissionais percebem seus benefícios e limitações.
