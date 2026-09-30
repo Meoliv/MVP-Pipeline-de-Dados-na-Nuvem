@@ -1,0 +1,9 @@
+O objetivo principal do projeto foi construir um pipeline de dados completo em ambiente de nuvem, utilizando conceitos de Engenharia de Dados e seguindo a Arquitetura Medalhão.
+
+Os objetivos propostos foram alcançados, incluindo a coleta dos dados, carga em ambiente Databricks, modelagem das tabelas, construção do pipeline ETL, análise da qualidade dos dados e desenvolvimento das análises necessárias para responder às perguntas de negócio definidas inicialmente.
+
+Uma das principais dificuldades encontradas foi compreender a organização das tabelas dentro do Databricks e estruturar adequadamente as camadas Bronze, Silver e Gold de forma alinhada às boas práticas da arquitetura Lakehouse.
+
+O projeto permitiu consolidar conhecimentos relacionados à modelagem de dados, transformação de informações, construção de pipelines e utilização do Databricks como plataforma de processamento em nuvem.
+
+Como trabalhos futuros, poderiam ser exploradas análises adicionais envolvendo remuneração, experiência profissional, países, modalidades de trabalho e comparação entre tecnologias utilizadas pelos participantes da pesquisa.
