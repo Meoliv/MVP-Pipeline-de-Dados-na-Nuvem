@@ -6,4 +6,4 @@ Uma das principais dificuldades encontradas foi compreender a organização das 
 
 O projeto permitiu consolidar conhecimentos relacionados à modelagem de dados, transformação de informações, construção de pipelines e utilização do Databricks como plataforma de processamento em nuvem.
 
-Como trabalhos futuros, poderiam ser exploradas análises adicionais envolvendo remuneração, experiência profissional, países, modalidades de trabalho e comparação entre tecnologias utilizadas pelos participantes da pesquisa.
+Como trabalho futuro, o pipeline pode ser expandido para explorar relações entre remuneração, experiência profissional, modalidades de trabalho e adoção de Inteligência Artificial, utilizando atributos já presentes na camada Silver mas que não fizeram parte do escopo deste MVP.
