@@ -15,18 +15,15 @@ O arquivo possui aproximadamente 141 MB e contém 52.839 registros.
 
 2.2 Processo de coleta
 
-A coleta foi realizada inicialmente por meio do download do arquivo disponibilizado pela Stack Overflow.
+Após o download, o arquivo foi importado para o ambiente Databricks Free Edition, utilizado como plataforma de armazenamento e processamento dos dados.
 
-Após o download, o arquivo foi importado para o ambiente Databricks Free Edition, que foi utilizado como plataforma de processamento e armazenamento do pipeline.
+O objetivo dessa etapa foi disponibilizar o conjunto de dados em ambiente de nuvem e preservar uma cópia íntegra dos dados originais para rastreabilidade do pipeline.
 
-O objetivo desta etapa foi disponibilizar o dado bruto no ambiente de nuvem antes da realização de qualquer transformação.
-
-O arquivo original foi carregado para uma tabela no catálogo workspace.default, denominada:
+O arquivo foi armazenado na tabela:
 
 workspace.default.survey_results_public
 
-
-Essa tabela representa a camada Bronze do pipeline.
+Essa tabela representa a camada Bronze da arquitetura Medalhão adotada no projeto e constitui a origem das transformações realizadas nas etapas posteriores.
 
 2.3 Camada Bronze
 
