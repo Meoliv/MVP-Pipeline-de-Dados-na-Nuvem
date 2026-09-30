@@ -1,0 +1,62 @@
+4.1 Organização do Pipeline
+
+O pipeline foi implementado no Databricks Free Edition utilizando tabelas persistidas no catálogo workspace.default e seguindo a Arquitetura Medalhão.
+
+O fluxo de processamento foi organizado da seguinte forma:
+
+survey_results_public (Bronze)
+            │
+            ▼
+survey_silver (Silver)
+            │
+            ├──► silver_languages
+            │
+            ├──► gold_developer_profile
+            ├──► gold_languages
+            ├──► gold_ai_usage
+            └──► gold_ai_usage_sentiment
+
+Cada etapa possui uma responsabilidade específica dentro do processo de transformação dos dados, permitindo rastreabilidade e separação entre dados brutos, tratados e analíticos.
+
+4.2 Transformação Bronze → Silver
+
+A partir da tabela survey_results_public foram selecionados os campos necessários para responder às perguntas de negócio definidas no projeto.
+
+Durante essa etapa foram realizadas as seguintes transformações:
+
+Seleção dos atributos relevantes para análise;
+Padronização dos nomes das colunas;
+Conversão de tipos de dados quando necessário;
+Organização dos dados em uma estrutura simplificada para consumo analítico;
+Tratamento de valores ausentes quando aplicável.
+
+O resultado desse processo foi armazenado na tabela survey_silver.
+
+4.3 Transformação Silver → silver_languages
+
+O campo LanguageHaveWorkedWith apresenta múltiplas linguagens armazenadas em uma única coluna, separadas por ponto e vírgula.
+
+Para possibilitar análises por linguagem individual, os valores foram separados e transformados em registros independentes.
+
+Exemplo:
+Bash/Shell (all shells); Dart; SQL
+Transformado em:
+response_id | language
+1           | Bash/Shell (all shells)
+1           | Dart
+1           | SQL
+
+O resultado foi armazenado na tabela silver_languages.
+
+4.4 Transformação Silver → Gold
+
+A camada Gold foi criada com o objetivo de responder diretamente às perguntas de negócio definidas no projeto.
+
+Foram construídas as seguintes tabelas:
+
+gold_developer_profile
+gold_languages
+gold_ai_usage
+gold_ai_usage_sentiment
+
+Cada tabela contém métricas agregadas, quantidades e percentuais calculados a partir dos dados tratados da camada Silver.
