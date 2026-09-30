@@ -127,30 +127,32 @@ Tabela destinada à análise conjunta entre frequência de utilização de ferra
 Essa tabela permite observar como as categorias de percepção (Very favorable, Favorable, Indifferent, Unfavorable, Very unfavorable e Unsure) estão distribuídas dentro de cada categoria de utilização.
 
 3.6 Catálogo de Dados — survey_silver
-Campo	Tipo	Descrição	Origem
-response_id	BIGINT	Identificador da resposta	ResponseId
-age	STRING	Faixa etária declarada pelo participante	Age
-education	STRING	Nível de educação	EdLevel
-employment	STRING	Situação profissional	Employment
-work_experience	STRING	Experiência profissional	WorkExp
-years_coding	STRING	Tempo de experiência com programação	YearsCode
-developer_type	STRING	Tipo ou cargo profissional	DevType
-company_size	STRING	Tamanho da organização	OrgSize
-remote_work	STRING	Modalidade de trabalho	RemoteWork
-industry	STRING	Setor de atuação	Industry
-country	STRING	País do participante	Country
-currency	STRING	Moeda utilizada na informação salarial	Currency
-salary_yearly	DOUBLE	Remuneração anual convertida	ConvertedCompYearly
-languages_worked	STRING	Linguagens com as quais o participante trabalhou	LanguageHaveWorkedWith
-languages_wanted	STRING	Linguagens com as quais o participante deseja trabalhar	LanguageWantToWorkWith
-ai_usage	STRING	Frequência de utilização de ferramentas de IA	AISelect
-ai_sentiment	STRING	Percepção do participante sobre IA	AISent
-ai_accuracy	STRING	Percepção sobre a precisão das ferramentas de IA	AIAcc
-ai_complexity	STRING	Percepção sobre a capacidade da IA em tarefas complexas	AIComplex
-ai_frustration	STRING	Frustrações relacionadas à utilização de IA	AIFrustration
-ai_threat	STRING	Percepção sobre IA como ameaça ao trabalho	AIThreat
-ai_agents	STRING	Utilização de agentes de IA	AIAgents
-ai_agent_change	STRING	Percepção sobre mudanças relacionadas aos agentes de IA	AIAgentChange
+| Campo              | Tipo   | Descrição                                               | Origem                   |
+| ------------------ | ------ | ------------------------------------------------------- | ------------------------ |
+| `response_id`      | BIGINT | Identificador da resposta                               | `ResponseId`             |
+| `age`              | STRING | Faixa etária declarada pelo participante                | `Age`                    |
+| `education`        | STRING | Nível de educação                                       | `EdLevel`                |
+| `employment`       | STRING | Situação profissional                                   | `Employment`             |
+| `work_experience`  | STRING | Experiência profissional                                | `WorkExp`                |
+| `years_coding`     | STRING | Tempo de experiência com programação                    | `YearsCode`              |
+| `developer_type`   | STRING | Tipo ou cargo profissional                              | `DevType`                |
+| `company_size`     | STRING | Tamanho da organização                                  | `OrgSize`                |
+| `remote_work`      | STRING | Modalidade de trabalho                                  | `RemoteWork`             |
+| `industry`         | STRING | Setor de atuação                                        | `Industry`               |
+| `country`          | STRING | País do participante                                    | `Country`                |
+| `currency`         | STRING | Moeda utilizada na informação salarial                  | `Currency`               |
+| `salary_yearly`    | DOUBLE | Remuneração anual convertida                            | `ConvertedCompYearly`    |
+| `languages_worked` | STRING | Linguagens com as quais o participante trabalhou        | `LanguageHaveWorkedWith` |
+| `languages_wanted` | STRING | Linguagens com as quais o participante deseja trabalhar | `LanguageWantToWorkWith` |
+| `ai_usage`         | STRING | Frequência de utilização de ferramentas de IA           | `AISelect`               |
+| `ai_sentiment`     | STRING | Percepção do participante sobre IA                      | `AISent`                 |
+| `ai_accuracy`      | STRING | Percepção sobre a precisão das ferramentas de IA        | `AIAcc`                  |
+| `ai_complexity`    | STRING | Percepção sobre a capacidade da IA em tarefas complexas | `AIComplex`              |
+| `ai_frustration`   | STRING | Frustrações relacionadas à utilização de IA             | `AIFrustration`          |
+| `ai_threat`        | STRING | Percepção sobre IA como ameaça ao trabalho              | `AIThreat`               |
+| `ai_agents`        | STRING | Utilização de agentes de IA                             | `AIAgents`               |
+| `ai_agent_change`  | STRING | Percepção sobre mudanças relacionadas aos agentes de IA | `AIAgentChange`          |
+
 
 3.7 Domínio e tratamento dos valores
 
