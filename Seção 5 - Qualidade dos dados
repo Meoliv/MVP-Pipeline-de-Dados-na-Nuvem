@@ -1,0 +1,35 @@
+5.1 Completude
+
+Foi realizada a verificação de campos nulos e valores ausentes nas colunas utilizadas nas análises.
+
+Foram identificados registros sem preenchimento em alguns atributos da pesquisa, situação esperada devido ao caráter opcional de determinadas perguntas da Stack Overflow Developer Survey.
+
+Quando necessário, os registros foram agrupados na categoria "Não informado", evitando perda de informações durante o processo analítico.
+
+5.2 Consistência
+
+Foi realizada a validação dos tipos de dados e dos valores presentes nos atributos utilizados.
+
+As categorias observadas nas variáveis relacionadas ao perfil profissional, linguagens de programação e Inteligência Artificial seguiram os padrões disponibilizados pela pesquisa original.
+
+Não foram identificados valores inconsistentes que comprometessem as análises realizadas.
+
+5.3 Unicidade
+
+A unicidade dos registros foi verificada utilizando o identificador response_id.
+
+A análise indicou que cada resposta possui um identificador único, não sendo identificadas duplicidades que exigissem tratamento adicional.
+
+5.4 Acurácia
+
+Os valores observados foram compatíveis com o contexto esperado para os dados da pesquisa.
+
+Não foram encontradas informações incompatíveis com as categorias definidas originalmente pela Stack Overflow Developer Survey.
+
+5.5 Outliers
+
+As análises do projeto foram realizadas predominantemente sobre variáveis categóricas.
+
+Dessa forma, a presença de valores extremos não apresentou impacto relevante nos resultados obtidos.
+
+Os atributos numéricos foram mantidos sem alterações para preservar a fidelidade dos dados originais.
